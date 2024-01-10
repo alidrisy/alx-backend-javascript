@@ -45,3 +45,21 @@ function createEmployee(salary: number | string): DirectorInterface | TeacherInt
     return new Director();
   }
 }
+
+function isDirector(employee: DirectorInterface | TeacherInterface): boolean {
+  return employee instanceof Director;
+}
+
+function executeWork(employee: DirectorInterface | TeacherInterface): void {
+  if (employee instanceof Director) {
+    employee.workDirectorTasks();
+  } if (employee instanceof Teacher) {
+    employee.workTeacherTasks();
+  }
+}
+
+type Subjects = 'Math' | 'History';
+
+function teachClass(todayClass: Subjects): string {
+  return `Teaching ${todayClass}`;
+}
