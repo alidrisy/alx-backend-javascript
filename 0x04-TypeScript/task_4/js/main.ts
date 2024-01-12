@@ -1,65 +1,25 @@
-interface DirectorInterface {
-  workFromHome(): string,
-  getCoffeeBreak(): string,
-  workDirectorTasks(): string,
-}
+/// <reference path="./subjects/Subject.ts" />
+/// <reference path="./subjects/Teacher.ts" />
 
-interface TeacherInterface {
-  workFromHome(): string,
-  getCoffeeBreak(): string,
-  workTeacherTasks(): string,
-}
+export const cpp: Subjects.Cpp = new Subjects.Cpp();
+export const java: Subjects.Java = new Subjects.Java();
+export const react: Subjects.React = new Subjects.React();
 
-class Director implements DirectorInterface {
-  workFromHome(): string {
-    return 'Working from home';
-  }
+export const cTeacher: Subjects.Teacher = {
+  firstName: "Guillaume",
+  lastName: "Salva",
+  experienceTeachingC: 10,
+};
 
-  getCoffeeBreak(): string {
-    return 'Getting a coffee break';
-  }
+cpp.setTeacher(cTeacher);
 
-  workDirectorTasks(): string {
-    return 'Getting to director tasks';
-  }
-}
+console.log(cpp.getRequirements());
+console.log(cpp.getAvailableTeacher());
 
-class Teacher implements TeacherInterface {
-  workFromHome(): string {
-    return 'Cannot work from home';
-  }
+java.setTeacher(cTeacher);
+console.log(java.getRequirements());
+console.log(java.getAvailableTeacher());
 
-  getCoffeeBreak(): string {
-    return 'Cannot have a break';
-  }
-
-  workTeacherTasks(): string {
-    return 'Getting to work';
-  }
-}
-
-function createEmployee(salary: number | string): DirectorInterface | TeacherInterface {
-  if (typeof salary === 'number' && salary < 500) {
-    return new Teacher();
-  } else {
-    return new Director();
-  }
-}
-
-function isDirector(employee: DirectorInterface | TeacherInterface): boolean {
-  return employee instanceof Director;
-}
-
-function executeWork(employee: DirectorInterface | TeacherInterface): void {
-  if (employee instanceof Director) {
-    employee.workDirectorTasks();
-  } if (employee instanceof Teacher) {
-    employee.workTeacherTasks();
-  }
-}
-
-type Subjects = 'Math' | 'History';
-
-function teachClass(todayClass: Subjects): string {
-  return `Teaching ${todayClass}`;
-}
+react.setTeacher(cTeacher);
+console.log(react.getRequirements());
+console.log(react.getAvailableTeacher());

@@ -1,65 +1,17 @@
-interface DirectorInterface {
-  workFromHome(): string,
-  getCoffeeBreak(): string,
-  workDirectorTasks(): string,
+interface MajorCredits {
+  credits: number;
+  type: 'major';
 }
 
-interface TeacherInterface {
-  workFromHome(): string,
-  getCoffeeBreak(): string,
-  workTeacherTasks(): string,
+interface MinorCredits {
+  credits: number;
+  type: 'minor';
 }
 
-class Director implements DirectorInterface {
-  workFromHome(): string {
-    return 'Working from home';
-  }
-
-  getCoffeeBreak(): string {
-    return 'Getting a coffee break';
-  }
-
-  workDirectorTasks(): string {
-    return 'Getting to director tasks';
-  }
+function sumMajorCredits(subject1: MajorCredits, subject2: MajorCredits): MajorCredits {
+  return { credits: subject1.credits + subject2.credits, type: "major" };
 }
 
-class Teacher implements TeacherInterface {
-  workFromHome(): string {
-    return 'Cannot work from home';
-  }
-
-  getCoffeeBreak(): string {
-    return 'Cannot have a break';
-  }
-
-  workTeacherTasks(): string {
-    return 'Getting to work';
-  }
-}
-
-function createEmployee(salary: number | string): DirectorInterface | TeacherInterface {
-  if (typeof salary === 'number' && salary < 500) {
-    return new Teacher();
-  } else {
-    return new Director();
-  }
-}
-
-function isDirector(employee: DirectorInterface | TeacherInterface): boolean {
-  return employee instanceof Director;
-}
-
-function executeWork(employee: DirectorInterface | TeacherInterface): void {
-  if (employee instanceof Director) {
-    employee.workDirectorTasks();
-  } if (employee instanceof Teacher) {
-    employee.workTeacherTasks();
-  }
-}
-
-type Subjects = 'Math' | 'History';
-
-function teachClass(todayClass: Subjects): string {
-  return `Teaching ${todayClass}`;
+function sumMinorCredits(subject1: MinorCredits, subject2: MinorCredits): MinorCredits {
+  return { credits: subject1.credits + subject2.credits, type: "minor" };
 }
