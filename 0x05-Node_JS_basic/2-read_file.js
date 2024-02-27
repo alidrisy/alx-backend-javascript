@@ -8,16 +8,16 @@ const countStudents = (path) => {
     const studentsFields = {}
     for (const student of data.slice(1)) {
       if (student.length) {
-          const listStudent = student.split(',');
-          students.push(Object.fromEntries(
-            keys.map((key, index) => [key, listStudent[index]])
-          ));
-          const field = listStudent[listStudent.length - 1];
-          if (!Object.keys(studentsFields).includes(field)) {
-            studentsFields[field] = [];
-          }
-          studentsFields[field].push(listStudent[0])
+        const listStudent = student.split(',');
+        students.push(Object.fromEntries(
+          keys.map((key, index) => [key, listStudent[index]])
+        ));
+        const field = listStudent[listStudent.length - 1];
+        if (!Object.keys(studentsFields).includes(field)) {
+          studentsFields[field] = [];
         }
+        studentsFields[field].push(listStudent[0])
+      }
     }
     console.log(studentsFields)
     console.log('Number of students: ' + students.length);
