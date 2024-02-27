@@ -1,4 +1,4 @@
-const displayMessage = (val) => {
+function displayMessage (val) {
     process.stdout.write(val + '\n');
 }
 
