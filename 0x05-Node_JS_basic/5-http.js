@@ -1,6 +1,9 @@
 const http = require('http');
 const fs = require('fs');
 
+const database = process.argv.length > 2 ? process.argv[2] : '';
+
+
 const countStudents = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf-8', (err, data) => {
     if (err) {
@@ -42,11 +45,11 @@ const app = http.createServer((req, res) => {
   if (req.url === '/') {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
-    countStudents('database.csv')
+    countStudents(database)
       .then((report) => {
         res.end(`This is the list of our students\n${report.join('\n')}`);
       }).catch((err) => {
-        const error = err instanceof Error ? err.message : err.toString();
+        const error = (err instanceof Error) ? err.message : err.toString();
         res.end(`This is the list of our students\n${error}`);
       });
   }
