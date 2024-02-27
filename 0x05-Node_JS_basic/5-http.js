@@ -3,7 +3,6 @@ const fs = require('fs');
 
 const database = process.argv.length > 2 ? process.argv[2] : '';
 
-
 const countStudents = (path) => new Promise((resolve, reject) => {
   fs.readFile(path, 'utf-8', (err, data) => {
     if (err) {
