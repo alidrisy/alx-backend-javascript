@@ -4,10 +4,10 @@ const calculateNumber = require("./2-calcul.js");
 describe('calculateNumber', function () {
   describe('SUM', function () {
     it('should return 4', function () {
-      assert.equal(calculateNumber('SUM', 1, 3)).to.be(4);
+      expect(calculateNumber('SUM', 1, 3)).to.be(4);
     });
     it('should return 5', function () {
-      assert.equal(calculateNumber('SUM', 1, 3.7)).to.be(5);
+      expect(calculateNumber('SUM', 1, 3.7)).to.be(5);
     });
     it('should return 6', function () {
       expect(calculateNumber('SUM', 1.5, 3.7)).to.be(6);
@@ -47,10 +47,10 @@ describe('calculateNumber', function () {
       expect(calculateNumber('DIVIDE', 4, 2)).to.be(2);
     });
     it('should return 2', function () {
-      assert.equal(calculateNumber('DIVIDE', 3.7, 2)).to.be(2);
+      expect(calculateNumber('DIVIDE', 3.7, 2)).to.be(2);
     });
     it('should return 0.5', function () {
-      assert.equal(calculateNumber('DIVIDE', 1.5, 3.7)).to.be(0.5);
+      expect(calculateNumber('DIVIDE', 1.5, 3.7)).to.be(0.5);
     });
     it(`checking if numbers round`, function() {
       expect(calculateNumber('DIVIDE', 0, 0)).to.be('Error');
