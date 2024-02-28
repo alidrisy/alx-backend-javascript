@@ -33,8 +33,7 @@ describe('calculateNumber', function () {
       expect(calculateNumber('SUBTRACT', 1.5, 3.7)).to.be(-2);
     });
     it(`checking if numbers round`, function() {
-      expect(calculateNumber('SUBTRACT',Writing objects: 100% (4/4), 471 bytes | 471.00 KiB/s, done.
-      0, 0)).to.be(0);
+      expect(calculateNumber('SUBTRACT', 0, 0)).to.be(0);
     });
     it(`checking if numbers round`, function() {
       expect(calculateNumber('SUBTRACT', -1.6, -1.7)).to.be(0);
