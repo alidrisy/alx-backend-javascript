@@ -12,7 +12,7 @@ describe('sendPaymentRequestToApi', () => {
       consoleLogSpy = sinon.spy(console, 'log');
       calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
       calculateNumberStub.returns(10);
-      sendPaymentRequestToApi = require('./3-payment');
+      sendPaymentRequestToApi = require('./4-payment');
     });
 
     afterEach(() => {
