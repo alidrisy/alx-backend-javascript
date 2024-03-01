@@ -28,7 +28,7 @@ describe('sendPaymentRequestToApi', () => {
     });
 
     it('call sendPaymentRequestToAPI with 10, and 10 and get return val = 20', () => {
-      sendPaymentRequestToApi(100, 20);
+      sendPaymentRequestToApi(10, 10);
 
       expect(calculateNumberStub.calledOnce).to.be.true;
       expect(calculateNumberStub.calledWith('SUM', 10, 10)).to.be.true;
