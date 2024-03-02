@@ -12,25 +12,20 @@ app.get('/cart/:id(\\d+)', (req, res) => {
   res.send(`Payment methods for cart ${req.params.id}`);
 });
 
-app.get('/available_payments', (request, response) => {
-  response.set("Content-Type", "application/json");
-  const payMethods = {
-payment_methods: {
-        credit_cards: true,
-        paypal: false
-}
-  }
-  response.send(payMethods);
+aapp.get('/available_payments', (_req, res) => {
+  res.json({ payment_methods: { credit_cards: true, paypal: false } });
 });
 
-app.post('/login', (request, response) => {
-  const userName = request.body.userName;
-  if (userName) {
-response.send(`Welcome ${userName}`);
-  } else {
-response.status(404).send();
+app.post('/login', (req, res) => {
+  let username = '';
+
+  if (req.body) {
+    username = req.body.userName;
   }
+
+  res.send(`Welcome ${username}`);
 });
+
   
 app.listen(port, () => {
   console.log(`API available on localhost port ${port}`);
