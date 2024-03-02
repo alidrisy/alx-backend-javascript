@@ -12,7 +12,7 @@ app.get('/cart/:id(\\d+)', (req, res) => {
   res.send(`Payment methods for cart ${req.params.id}`);
 });
 
-aapp.get('/available_payments', (_req, res) => {
+app.get('/available_payments', (_req, res) => {
   res.json({ payment_methods: { credit_cards: true, paypal: false } });
 });
 
