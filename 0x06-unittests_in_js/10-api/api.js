@@ -16,17 +16,10 @@ app.get('/available_payments', (_req, res) => {
   res.json({ payment_methods: { credit_cards: true, paypal: false } });
 });
 
-app.post('/login', (req, res) => {
-  let username = '';
-
-  if (req.body) {
-    username = req.body.userName;
-  }
-
-  res.send(`Welcome ${username}`);
+app.post("/login", function (req, res) {
+  res.send(`Welcome ${req.body.userName}`);
 });
 
-  
 app.listen(port, () => {
   console.log(`API available on localhost port ${port}`);
 });
