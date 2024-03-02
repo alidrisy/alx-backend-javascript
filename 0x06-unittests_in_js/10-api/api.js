@@ -1,8 +1,11 @@
 const express = require('express');
+const bodyParser = require("body-parser");
 
 app = express()
 
 const port = 7865;
+
+app.use(bodyParser.json());
 
 app.get('/', (_req, res) => {
   res.send('Welcome to the payment system');
